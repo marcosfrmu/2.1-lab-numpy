@@ -93,8 +93,26 @@ Note: you don't have to use Numpy in this question.
 
 
 
-"""
+
 #17. Print d and f. Do you have your expected f?
+
+f=f.astype(str)
+for x in range(d.shape[0]):
+    for y in range(d.shape[1]):
+        for z in range(d.shape[2]):
+            if d[x,y,z] > d_min and d[x,y,z] < d_mean:
+                f[x,y,z] ="A"
+            elif d[x,y,x] >d_mean and d[x,y,z]<d_max:
+                f[x,y,z]="B"
+            elif d[x,y,z] ==d_mean:
+                f[x,y,z]="C"
+            elif d[x,y,z]==d_min:
+                f[x,y,z]="D"
+            else:
+                f[x,y,z]="E"
+print(f)
+
+
 For instance, if your d is:
 array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931],
         [1.75354326, 1.69403643, 1.36729252, 1.61415071, 1.12104981],
@@ -117,6 +135,9 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
+
+print(d,f)
+
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
 array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'D',  'D',  'B',  'B',  'B'],
